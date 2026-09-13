@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.vercel/
+
+# Platform-only workspace metadata (Grok App Builder agent instructions,
+# not part of the game) — safe to keep locally, no reason to publish
+.grok/
+attachments/
+artifacts/
+.node_modules.lock
+.project_id
+
+# Misc
+*.local
+.DS_Store
+npm-debug.log*

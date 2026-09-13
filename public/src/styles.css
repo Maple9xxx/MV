@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f4efe6;
+  --color-paper-deep: #e7dcc8;
+  --color-ink: #2c2419;
+  --color-ink-soft: #5c5346;
+  --color-sage: #4a7c59;
+  --color-sage-dark: #2f553c;
+  --color-clay: #b85c38;
+  --color-teal: #3d7a8c;
+  --color-mist: #d9d0c3;
+  --color-line: #c9bba8;
+  --color-hud: #f4efe6ee;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "Be Vietnam Pro", system-ui, sans-serif;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow-chip: 0 0 0 1px rgba(44, 36, 25, 0.08), 0 1px 2px rgba(44, 36, 25, 0.06);
+  --shadow-panel: 0 24px 60px rgba(44, 36, 25, 0.28);
+}
+
+@layer base {
+  html,
+  body,
+  #app {
+    height: 100%;
+  }
+
+  html {
+    color-scheme: light;
+    overscroll-behavior: none;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility shadow-chip {
+  box-shadow: var(--shadow-chip);
+}
+
+@utility shadow-panel {
+  box-shadow: var(--shadow-panel);
+}
+
+@utility ease-out-soft {
+  transition-timing-function: var(--ease-out-soft);
+}
+
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.overlay-panel {
+  animation: overlay-in 250ms var(--ease-out-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay-panel {
+    animation: none;
+  }
+}
